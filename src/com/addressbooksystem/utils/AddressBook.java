@@ -1,6 +1,5 @@
 package com.addressbooksystem.utils;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +13,7 @@ public class AddressBook {
 			int option;
 			Hashtable<String, List<Person>> addressBooks = new Hashtable<String, List<Person>>(); 
 			do {
-			System.out.println(" Enter 1 to Add AddressBook\n Enter 2 to Edit AddressBook\n  Enter 3 to Exit\n");
+			System.out.println(" Enter 1 to Add AddressBook\n Enter 2 to Edit AddressBook\n Enter 3 to Exit\n");
 			option=s.nextInt();
 			switch(option) {
 			   case 1:

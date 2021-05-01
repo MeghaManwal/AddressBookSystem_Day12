@@ -11,8 +11,9 @@ package com.addressbooksystem.utils;
 			public String getFirstname() {
 		        return firstname;
 		    }
-		    public void setFirstname(String name) {
+		    public String setFirstname(String name) {
 		        this.firstname = name;
+		        return name;
 		    }
 		    
 		    public String getLastname() {
@@ -44,7 +45,7 @@ package com.addressbooksystem.utils;
 
 		    @Override
 		    public String toString() {
-		       return " " + firstname + " " + lastname +" "+ address + " " + phoneNumber + " " + emailId +"";
-		   }
-		  
+		      return " " + firstname + " " + lastname +" "+ address + " " + phoneNumber + " " + emailId +"";
+		    }
+		    		  
   }

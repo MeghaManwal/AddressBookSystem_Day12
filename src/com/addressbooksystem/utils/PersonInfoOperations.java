@@ -1,7 +1,9 @@
 package com.addressbooksystem.utils;
 
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
  class PersonInfoOperations {
@@ -9,8 +11,8 @@ import java.util.List;
 	   static Scanner s=new Scanner(System.in);
 	
 	   public static void addContact(List<Person> persons) {
-	
 				Person P = new Person();
+				
 			    System.out.println("Enter Firstname"); 
 			    P.setFirstname(s.nextLine());
 			    System.out.println("Enter Lastname"); 
@@ -23,21 +25,21 @@ import java.util.List;
 			    P.setemail(s.nextLine());
 			  
 			    persons.add(P);
-			    System.out.println(persons);
+			    System.out.println(persons);	   
 		   
 		}
 
-	   	public static void EditContact(List<Person> persons) {
+	   	public static void EditContact(List<Person> distinctEntries) {
 				System.out.println("Enter first name that you want to Edit:");
 				String firstName = s.nextLine();
 				Person selectedPerson = null;
-				for (int i = 0; i < persons.size(); i++) {
-				  if (firstName.equals(persons.get(i).getFirstname())) {
-					  selectedPerson = persons.get(i);
-					  break;
-				  }  
-				 }  
-			      if (selectedPerson != null) {
+				for (int i = 0; i < distinctEntries.size(); i++) {
+					if (firstName.equals(distinctEntries.get(i).getFirstname())) {
+				       selectedPerson = distinctEntries.get(i);
+					   break;
+					}  
+				}  
+			    if (selectedPerson != null) {
 			    	System.out.println("Enter new Firstname"); 
 			    	selectedPerson.setFirstname(s.nextLine());
 			        System.out.println("Enter new Lastname"); 
@@ -48,11 +50,11 @@ import java.util.List;
 			        selectedPerson.setphoneNumber(s.nextLine());
 			        System.out.println("Enter new EmailId");
 			        selectedPerson.setemail(s.nextLine());
-			        System.out.println(persons);   
-			     }	
-			     else {
-			         System.out.println("Invalid Name!Not Exist");
-			      }
+			        System.out.println(distinctEntries);   
+			    }	
+			    else {
+			        System.out.println("Invalid Name!Not Exist");
+			    }
 	  
 	     }
 
@@ -61,19 +63,20 @@ import java.util.List;
 					String firstName = s.nextLine();
 					
 					Person selectedPerson = null;
-					 for (int i = 0; i < persons.size(); i++) {
-						  if (firstName.equals(persons.get(i).getFirstname())) {
-							 selectedPerson = persons.get(i);
-						  	 break;
-						 }  
-					  }  
-					  if (selectedPerson != null) {	
-					      persons.remove(selectedPerson);
-					  }	
-					  else {
-					      System.out.println("Invalid Name!Not Exist");
-					  }
-	  
+				    for (int i = 0; i < persons.size(); i++) {
+					    if (firstName.equals(persons.get(i).getFirstname())) {
+						   selectedPerson = persons.get(i);
+						  break;
+						}  
+					 }  
+					 if (selectedPerson != null) {	
+					    persons.remove(selectedPerson);
+					    System.out.println("Successfully Deleted!\n");
+					    System.out.println(persons); 
+					 }	
+					 else {
+					    System.out.println("Invalid Name!Not Exist");
+					 }
 	   	  }
 }
 	
