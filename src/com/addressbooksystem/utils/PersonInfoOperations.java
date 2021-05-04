@@ -19,6 +19,12 @@ import java.util.List;
 			    P.setLastname(s.nextLine());
 			    System.out.println("Enter Address");
 			    P.setAddress(s.nextLine());
+			    System.out.println("Enter City");
+			    P.setCity(s.nextLine());
+			    System.out.println("Enter State");
+			    P.setState(s.nextLine());
+			    System.out.println("Enter Zip");
+			    P.setZip(s.nextLine());
 			    System.out.println("Enter PhoneNumber");
 			    P.setphoneNumber(s.nextLine());
 			    System.out.println("Enter EmailId");
@@ -29,13 +35,13 @@ import java.util.List;
 		   
 		}
 
-	   	public static void EditContact(List<Person> distinctEntries) {
+	   	public static void EditContact(List<Person> persons) {
 				System.out.println("Enter first name that you want to Edit:");
 				String firstName = s.nextLine();
 				Person selectedPerson = null;
-				for (int i = 0; i < distinctEntries.size(); i++) {
-					if (firstName.equals(distinctEntries.get(i).getFirstname())) {
-				       selectedPerson = distinctEntries.get(i);
+				for (int i = 0; i < persons.size(); i++) {
+					if (firstName.equals(persons.get(i).getFirstname())) {
+				       selectedPerson = persons.get(i);
 					   break;
 					}  
 				}  
@@ -46,11 +52,17 @@ import java.util.List;
 			        selectedPerson.setLastname(s.nextLine());
 			        System.out.println("Enter new Address");
 			        selectedPerson.setAddress(s.nextLine());
+			        System.out.println("Enter new City");
+			        selectedPerson.setCity(s.nextLine());
+			        System.out.println("Enter new State");
+			        selectedPerson.setState(s.nextLine());
+			        System.out.println("Enter new Zip");
+			        selectedPerson.setZip(s.nextLine());
 			        System.out.println("Enter new PhoneNumber");
 			        selectedPerson.setphoneNumber(s.nextLine());
 			        System.out.println("Enter new EmailId");
 			        selectedPerson.setemail(s.nextLine());
-			        System.out.println(distinctEntries);   
+			        System.out.println(persons);   
 			    }	
 			    else {
 			        System.out.println("Invalid Name!Not Exist");
@@ -78,6 +90,7 @@ import java.util.List;
 					    System.out.println("Invalid Name!Not Exist");
 					 }
 	   	  }
+	   	 
 }
 	
 

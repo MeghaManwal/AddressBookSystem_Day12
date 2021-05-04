@@ -23,7 +23,9 @@ public class AddressBookOperations {
 		    System.out.println("Enter the name of the AddressBook you want to Edit");
    	        String bookName1 = s.nextLine();
    	        
-   	        if(addressBooks.containsKey(bookName1)) {
+   	        if(addressBooks.containsKey(bookName1)) 
+   	        {
+   	        	
 		    List<Person> persons = addressBooks.get(bookName1);
 		    
 		    int choice;
@@ -56,11 +58,43 @@ public class AddressBookOperations {
 				default:
 					   System.out.println("Invalid Input!Please provide valid Input\n");
 					   break;
-				 }
-		      }
-		      while(choice != 0);
-   	          } else {
+			   } 
+			   System.out.println("Do you want to continue (1.Continue or 0.Exit)");
+			   choice=s.nextInt();
+		       }while(choice != 0);
+   	           } 
+   	           else {
    	        	      System.out.println("Invalid AddressBook Name!Not exist");
-		             }
+		              }
 	 }
+	
+	public static void searchInAddressBook(Hashtable<String, List<Person>> addressBooks) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the name of the AddressBook you want to search city for");
+	        String bookName1 = s.nextLine();
+	        
+	        if(addressBooks.containsKey(bookName1)) 
+	        {   
+	        	Person person = new Person();
+	        	List<Person> persons = addressBooks.get(bookName1);
+	        	System.out.println("Enter 1 To Search for person by City \n Enter 2 To Search for person by State \n");
+	        	int Choice=s.nextInt();
+	        	if (Choice==1) {
+	        		System.out.println("Enter the name of the city you want to search person for");
+	        		String city=s.nextLine();
+	        		List<Person> personsList = persons.stream().filter(i -> city.equals(person.getCity())).collect(Collectors.toList());	
+	        		System.out.println(personsList);
+	        	}
+	        	else if(Choice==2) {
+	        		System.out.println("Enter the name of the State you want to search person for");
+	        		String state=s.nextLine();
+	        		List<Person> personsList = persons.stream().filter(i -> state.equals(person.getState())).collect(Collectors.toList());	
+	        		System.out.println(personsList);
+	        	}
+	        	else
+	        		System.out.println("Invalid Input!");
+	        }
+		
+	}
+
 }

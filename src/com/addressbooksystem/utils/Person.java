@@ -5,6 +5,9 @@ package com.addressbooksystem.utils;
 		   private String firstname;
 		   private String lastname;
 		   private String address;
+		   private String city;
+		   private String state;
+		   private String zip;
 		   private String phoneNumber;
 		   private String emailId;
 		    
@@ -29,6 +32,28 @@ package com.addressbooksystem.utils;
 		    public void setAddress(String Address) {
 		        this.address = Address;
 		    }
+		    
+		    public String getCity() {
+		        return city;
+		    }
+		    public void setCity(String city) {
+		        this.city = city;
+		    }
+		    
+		    public String getState() {
+		        return state;
+		    }
+		    public void setState(String state) {
+		        this.state = state;
+		    }
+		    
+		    public String getZip() {
+		        return zip;
+		    }
+		    public void setZip(String zip) {
+		        this.zip = zip;
+		    }
+		    
 		    public String getphoneNumber() {
 		        return phoneNumber;
 		    }
@@ -45,7 +70,7 @@ package com.addressbooksystem.utils;
 
 		    @Override
 		    public String toString() {
-		      return " " + firstname + " " + lastname +" "+ address + " " + phoneNumber + " " + emailId +"";
+		      return " " + firstname + " " + lastname +" "+ address + " " + city + " " + state + " " + zip + " "+ phoneNumber + " " + emailId +"";
 		    }
 		    		  
   }
