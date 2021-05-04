@@ -3,6 +3,7 @@ package com.addressbooksystem.utils;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
@@ -91,6 +92,17 @@ import java.util.List;
 					 }
 	   	  }
 	   	 
+	   	 public static void sortByname(List<Person> persons) {	 
+	   	 
+	   		 		Comparator<Person> compareByName = Comparator
+                                           .comparing(Person::getFirstname).thenComparing(Person::getLastname);
+	   	
+	   		 		List<Person> sortedPersonsList = persons.stream()
+	   		 										.sorted(compareByName)
+	   		 										.collect(Collectors.toList());
+
+	   		 		System.out.println(sortedPersonsList);
+	   	 }
 }
 	
 

@@ -30,7 +30,7 @@ public class AddressBookOperations {
 		    
 		    int choice;
 		    do{
-			   System.out.println(" Enter 1 to Add Contact\n Enter 2 to Edit Contact\n Enter 3 to Delete Contact\n Enter 4 to Exit\n");
+			   System.out.println(" Enter 1 to Add Contact\n Enter 2 to Edit Contact\n Enter 3 to Delete Contact\n Enter 4 to SortBy Name\n Enter 5 to Exit\n");
 			   choice=s.nextInt();
 			   switch (choice)
 		       {
@@ -53,6 +53,9 @@ public class AddressBookOperations {
 					   PersonInfoOperations.DeleteContact(persons);
 					   break;
 				case 4:
+					   PersonInfoOperations.sortByname(persons);
+					   break;
+				case 5:
 					   System.exit(0);
 					   break;
 				default:
