@@ -103,6 +103,42 @@ import java.util.List;
 
 	   		 		System.out.println(sortedPersonsList);
 	   	 }
+	   	 
+	   	public static void sortBycity(List<Person> persons) {	 
+		   	 
+		 		Comparator<Person> compareBycity = Comparator
+                                                  .comparing(Person::getCity);
+	
+		 		List<Person> sortedPersonsList = persons.stream()
+		 										.sorted(compareBycity)
+		 										.collect(Collectors.toList());
+
+		 		System.out.println(sortedPersonsList);
+	   	}
+	   	
+	   	public static void sortBystate(List<Person> persons) {	 
+		   	 
+		 		Comparator<Person> compareBystate = Comparator
+                                                   .comparing(Person::getState);
+	
+		 		List<Person> sortedPersonsList = persons.stream()
+		 										.sorted(compareBystate)
+		 										.collect(Collectors.toList());
+
+		 		System.out.println(sortedPersonsList);
+	   	}
+	   	
+	   	public static void sortByzip(List<Person> persons) {	 
+		   	 
+		 		Comparator<Person> compareByzip = Comparator
+                                                 .comparing(Person::getZip);
+	
+		 		List<Person> sortedPersonsList = persons.stream()
+		 										.sorted(compareByzip)
+		 										.collect(Collectors.toList());
+
+		 		System.out.println(sortedPersonsList);
+	   	} 		
 }
 	
 

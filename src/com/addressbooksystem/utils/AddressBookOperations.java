@@ -30,7 +30,8 @@ public class AddressBookOperations {
 		    
 		    int choice;
 		    do{
-			   System.out.println(" Enter 1 to Add Contact\n Enter 2 to Edit Contact\n Enter 3 to Delete Contact\n Enter 4 to SortBy Name\n Enter 5 to Exit\n");
+			   System.out.println(" Enter 1 to Add Contact\n Enter 2 to Edit Contact\n Enter 3 to Delete Contact\n Enter 4 to SortBy Name\n Enter 5 to SortBy City"
+			   		                + "\n Enter 6 to SortBy State\n Enter 7 to SortBy Zip\n Enter 8 to Exit\n");
 			   choice=s.nextInt();
 			   switch (choice)
 		       {
@@ -56,6 +57,15 @@ public class AddressBookOperations {
 					   PersonInfoOperations.sortByname(persons);
 					   break;
 				case 5:
+					   PersonInfoOperations.sortBycity(persons);
+					   break;
+				case 6:
+					   PersonInfoOperations.sortBystate(persons);
+					   break;
+				case 7:	
+					   PersonInfoOperations.sortByzip(persons);
+					   break;
+				case 8:
 					   System.exit(0);
 					   break;
 				default:
