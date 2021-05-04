@@ -13,7 +13,7 @@ public class AddressBook {
 			int option;
 			Hashtable<String, List<Person>> addressBooks = new Hashtable<String, List<Person>>(); 
 			do {
-			System.out.println(" Enter 1 to Add AddressBook\n Enter 2 to Edit AddressBook\n Enter 3 to SearchIn AddressBook\n Enter 4 to Exit\n");
+			System.out.println(" Enter 1 to Add AddressBook\n Enter 2 to Edit AddressBook\n Enter 3 to SearchInAddressBook ForCity\n Enter 4 to SearchInAddressBook ForState\n Enter 5 to Exit\n");
 			option=s.nextInt();
 			switch(option) {
 			   case 1:
@@ -23,9 +23,12 @@ public class AddressBook {
 			    	 AddressBookOperations.editAddressBook(addressBooks); 
 			         break;
 			   case 3:
-			    	 AddressBookOperations.searchInAddressBook(addressBooks); 
-			         break;      
+			    	 AddressBookOperations.searchInAddressBookCity(addressBooks); 
+			         break; 
 			   case 4:
+			    	 AddressBookOperations.searchInAddressBookState(addressBooks); 
+			         break;       
+			   case 5:
 				     System.exit(0);
 				     break;
 		    }

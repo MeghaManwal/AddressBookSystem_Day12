@@ -9,9 +9,9 @@ import java.util.List;
 
  class PersonInfoOperations {
 	 
-	   static Scanner s=new Scanner(System.in);
+	    static Scanner s=new Scanner(System.in);
 	
-	   public static void addContact(List<Person> persons) {
+	    public static void addContact(List<Person> persons) {
 				Person P = new Person();
 				
 			    System.out.println("Enter Firstname"); 
@@ -34,9 +34,9 @@ import java.util.List;
 			    persons.add(P);
 			    System.out.println(persons);	   
 		   
-		}
+		 }
 
-	   	public static void EditContact(List<Person> persons) {
+	   	 public static void EditContact(List<Person> persons) {
 				System.out.println("Enter first name that you want to Edit:");
 				String firstName = s.nextLine();
 				Person selectedPerson = null;
@@ -72,51 +72,69 @@ import java.util.List;
 	     }
 
 	   	 public static void DeleteContact(List<Person> persons) {
-					System.out.println("Enter first name that you want to Delete:");
-					String firstName = s.nextLine();
+				System.out.println("Enter first name that you want to Delete:");
+				String firstName = s.nextLine();
 					
-					Person selectedPerson = null;
-				    for (int i = 0; i < persons.size(); i++) {
-					    if (firstName.equals(persons.get(i).getFirstname())) {
-						   selectedPerson = persons.get(i);
-						  break;
-						}  
-					 }  
-					 if (selectedPerson != null) {	
-					    persons.remove(selectedPerson);
-					    System.out.println("Successfully Deleted!\n");
-					    System.out.println(persons); 
-					 }	
-					 else {
-					    System.out.println("Invalid Name!Not Exist");
-					 }
-	   	  }
+				Person selectedPerson = null;
+				for (int i = 0; i < persons.size(); i++) {
+				 if (firstName.equals(persons.get(i).getFirstname())) {
+					 selectedPerson = persons.get(i);
+					 break;
+				 }  
+				 }  
+				 if (selectedPerson != null) {	
+					 persons.remove(selectedPerson);
+					 System.out.println("Successfully Deleted!\n");
+					 System.out.println(persons); 
+				  }	
+				  else {
+					 System.out.println("Invalid Name!Not Exist");
+				  }
+	     }
 	   	 
-	   	 public static void sortByname(List<Person> persons) {	 
+	   	 public static void countByCity(List<Person> persons) {
+	   		 
+	   		    System.out.println("Enter the name of the city:");
+	   		    String city=s.nextLine();
+	            Long countList= persons.stream().filter(e -> city.equals(e.getCity())).count();
+	   		    System.out.println(city+" : "+countList);	 
+	   		 
+	     }
 	   	 
-	   		 		Comparator<Person> compareByName = Comparator
-                                           .comparing(Person::getFirstname).thenComparing(Person::getLastname);
+	     public static void countByState(List<Person> persons) {
+	   		 
+	   		    System.out.println("Enter the name of the State:");
+	   		    String state=s.nextLine();
+	            Long countList= persons.stream().filter(e -> state.equals(e.getState())).count();
+	   		    System.out.println(state+" : "+countList); 
+	     }
+	   	 
+	     public static void sortByname(List<Person> persons) {	 
+	   	 
+	   		 	Comparator<Person> compareByName = Comparator
+                                                   .comparing(Person::getFirstname)
+                                                   .thenComparing(Person::getLastname);
 	   	
-	   		 		List<Person> sortedPersonsList = persons.stream()
-	   		 										.sorted(compareByName)
-	   		 										.collect(Collectors.toList());
+	   		 	List<Person> sortedPersonsList = persons.stream()
+	   		 									.sorted(compareByName)
+	   		 									.collect(Collectors.toList());
 
-	   		 		System.out.println(sortedPersonsList);
+	   		 	System.out.println(sortedPersonsList);
 	   	 }
 	   	 
-	   	public static void sortBycity(List<Person> persons) {	 
+	   	 public static void sortBycity(List<Person> persons) {	 
 		   	 
 		 		Comparator<Person> compareBycity = Comparator
                                                   .comparing(Person::getCity);
-	
+		 		
 		 		List<Person> sortedPersonsList = persons.stream()
 		 										.sorted(compareBycity)
 		 										.collect(Collectors.toList());
 
 		 		System.out.println(sortedPersonsList);
-	   	}
+	   	 }
 	   	
-	   	public static void sortBystate(List<Person> persons) {	 
+	   	 public static void sortBystate(List<Person> persons) {	 
 		   	 
 		 		Comparator<Person> compareBystate = Comparator
                                                    .comparing(Person::getState);
@@ -138,7 +156,7 @@ import java.util.List;
 		 										.collect(Collectors.toList());
 
 		 		System.out.println(sortedPersonsList);
-	   	} 		
+	    } 		
 }
 	
 
